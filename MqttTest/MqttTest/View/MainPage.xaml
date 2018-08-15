@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MqttTest"
+             xmlns:Converter="clr-namespace:MqttTest.Converter"
+             x:Class="MqttTest.MainPage">
+
+    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="20" Spacing="10" >
+
+        <StackLayout IsVisible="{ Binding IsConnected, Converter={ Converter:InverseBoolConverter } }">
+            <Entry Text="{ Binding Ip }" Placeholder="Ip" />
+            <Entry Text="{ Binding Port }" Placeholder="Port" />
+            <Entry Text="{ Binding ClientId }" Placeholder="ClientId" />
+            <Entry Text="{ Binding Username }" Placeholder="Username" />
+            <Entry Text="{ Binding Password }" Placeholder="Password" />
+            <Entry Text="{ Binding Topic }" Placeholder="Topic" />
+            <Button Text="Subscribe" Command="{ Binding Subscribe }" />
+        </StackLayout>
+
+        <StackLayout IsVisible="{ Binding IsConnected }">
+            <Label Text="{ Binding MessageSub }" HorizontalOptions="CenterAndExpand" />
+            <ListView ItemsSource="{ Binding Messages }" HorizontalOptions="FillAndExpand" HasUnevenRows="True" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label Text="{ Binding Text }" VerticalTextAlignment="Center" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Unsubscribe" Command="{ Binding Unsubscribe }" />
+        </StackLayout>
+
+        <Button Text="Publish" Clicked="Button_Clicked" />
+
+    </StackLayout>
+</ContentPage>

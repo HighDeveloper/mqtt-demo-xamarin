@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MqttTest.View.PublishMessage">
+    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="20" Spacing="20" >
+
+        <Entry HorizontalOptions="FillAndExpand" Placeholder="Ip" Text="{ Binding Ip }" />
+        <Entry HorizontalOptions="FillAndExpand" Placeholder="Port" Text="{ Binding Port }" />
+        <Entry HorizontalOptions="FillAndExpand" Placeholder="ClientId" Text="{ Binding ClientId }" />
+        <Entry HorizontalOptions="FillAndExpand" Placeholder="Username" Text="{ Binding Username }" />
+        <Entry HorizontalOptions="FillAndExpand" Placeholder="Password" Text="{ Binding Password }" />
+        <Entry HorizontalOptions="FillAndExpand" Placeholder="Topic" Text="{ Binding Topic }" />
+        <Entry HorizontalOptions="FillAndExpand" Placeholder="Message" Text="{ Binding MessagePub }" />
+
+        <Button HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Text="Enviar" Command="{ Binding PublishMessage }" />
+
+    </StackLayout>
+</ContentPage>
